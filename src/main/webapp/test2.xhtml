@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<ui:composition
+  template="#{headerValues.Fragment[0] == 'true' ? '/WEB-INF/template/fragment-page.xhtml' : '/WEB-INF/template/standalone-page.xhtml'}"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core">
+
+  <ui:define name="content">
+    <h2>JSF test2.xhtml #{helloBean.name}</h2>
+  </ui:define>
+
+</ui:composition>

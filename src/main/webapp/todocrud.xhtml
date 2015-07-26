@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<ui:composition
+  template="#{headerValues.Fragment[0] == 'true' ? '/WEB-INF/template/fragment-page.xhtml' : '/WEB-INF/template/standalone-page.xhtml'}"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core">
+
+  <ui:define name="content">
+
+    <h:panelGroup layout="block" id="test">
+      <f:metadata>
+        <f:viewParam name="fooId" value="#{todoCrudBean.fooId}" />
+        <f:viewAction action="#{todoCrudBean.init}" />
+      </f:metadata>
+
+      <h:panelGroup layout="block"
+        rendered="#{not empty facesContext.messageList}">
+        <h:messages infoStyle="color:darkgreen"
+          errorStyle="color:darkred" style="color: red"
+          globalOnly="false" />
+      </h:panelGroup>
+
+    </h:panelGroup>
+
+    <h:form prependId="false" id="updatedForm">
+
+      <h:inputHidden value="#{todoCrudBean.todo.id}" />
+      <h:outputLabel for="note" value="Note" />
+      <h:inputText id="note" value="#{todoCrudBean.todo.notes}"
+        required="true" requiredMessage="Note is required" />
+      <h:outputLabel for="note2" value="Note@" />
+      <h:inputText id="note2" value="#{todoCrudBean.todo.notes2}"
+        required="true" requiredMessage="Note2 is required" />
+
+      <h:commandButton action="#{todoCrudBean.save()}" value="Save"
+        type="submit">
+        <f:ajax execute="@form" render="test updatedForm" />
+      </h:commandButton>
+
+    </h:form>
+
+  </ui:define>
+
+</ui:composition>

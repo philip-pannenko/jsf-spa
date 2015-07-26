@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+
+  <title>Login Page</title>
+
+</h:head>
+<h:body>
+  <f:view transient="true">
+    <h1>Separate Login Page</h1>
+
+    <f:event type="preRenderView"
+      listener="#{facesContext.externalContext.response.setHeader('Fragement', 'false')}" />
+
+    <h:panelGroup style="border-style: solid;" layout="block"
+      id="testMe">
+
+      <h:form prependId="false" id="foobar">
+
+        <!--         <h:messages id="messages" autoUpdate="true" closable="true" /> -->
+        <h:messages globalOnly="true" autoUpdate="true" />
+        <h:outputLabel for="username" value="Username" />
+        <h:inputText id="username" value="#{loginBean.username}"
+          required="true" />
+        <h:message for="username" />
+        <br />
+        <h:outputLabel for="password" value="Password" />
+        <h:inputSecret id="password" value="#{loginBean.password}"
+          required="true" />
+        <h:message for="password" />
+        <br />
+        <h:commandButton value="login" action="#{loginBean.login()}">
+          <f:ajax execute="@form" render="@form foobar" />
+        </h:commandButton>
+
+      </h:form>
+
+    </h:panelGroup>
+
+  </f:view>
+</h:body>
+
+
+</html>

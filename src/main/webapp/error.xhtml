@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<ui:composition
+  template="#{headerValues.Fragment[0] == 'true' ? '/WEB-INF/template/fragment-page.xhtml' : '/WEB-INF/template/standalone-page.xhtml'}"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core">
+  <ui:define name="content">
+
+    <h1>Error page please login</h1>
+    <h:form>
+      <h:commandButton type="submit" action="login.xhtml"
+        value="login page">
+      </h:commandButton>
+    </h:form>
+  </ui:define>
+
+</ui:composition>

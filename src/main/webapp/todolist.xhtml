@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<ui:composition
+  template="#{headerValues.Fragment[0] == 'true' ? '/WEB-INF/template/fragment-page.xhtml' : '/WEB-INF/template/standalone-page.xhtml'}"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:f="http://java.sun.com/jsf/core">
+
+  <ui:define name="content">
+    <f:view transient="false">
+      <h:link outcome="/todocrud.xhtml" value="Add New" />
+
+      <h:dataTable value="#{todoBean.todos}" var="todo">
+
+        <h:column>#{todo.id}</h:column>
+
+        <h:column>#{todo.notes}</h:column>
+
+        <h:column>#{todo.notes2}</h:column>
+
+        <h:column>
+          <h:link outcome="todocrud.xhtml?fooId=#{todo.id}"
+            value="Crud Form" />
+        </h:column>
+
+      </h:dataTable>
+
+    </f:view>
+  </ui:define>
+
+</ui:composition>

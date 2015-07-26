@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+  <title>JSF 2.0 Hello World</title>
+
+  <h:outputScript library="javax.faces" name="jsf.js" />
+  <h:outputScript name="scripts/jquery-2.1.4.js" />
+  <h:outputScript name="scripts/jquery.history.js" />
+  <h:outputScript name="scripts/jsfspa.js" />
+
+  <base href="/jsfspa/" />
+  <!-- this is important for the pretty rewrite thing I believe-->
+
+  <style>
+.loadingDiv {
+  background-image: url("#{resource['images/loader.gif']}" );
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+</style>
+
+
+</h:head>
+<h:body>
+  <f:view transient="true">
+    <h:panelGroup style="border-style: solid;" layout="block">
+      <ui:insert name="header">
+        <ui:include src="/WEB-INF/template/commonHeader.xhtml" />
+      </ui:insert>
+    </h:panelGroup>
+
+    <div id="loadingDiv" class="loadingDiv" />
+
+    <h:panelGroup style="border-style: solid;" layout="block"
+      id="testMe">
+      <ui:insert name="content" />
+    </h:panelGroup>
+
+    <h:panelGroup style="border-style: solid;" layout="block">
+
+      <ui:insert name="footer">
+        <ui:include src="/WEB-INF/template/commonFooter.xhtml" />
+      </ui:insert>
+    </h:panelGroup>
+  </f:view>
+</h:body>
+
+
+</html>
