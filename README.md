@@ -69,10 +69,11 @@ Logging
 
 Currently a proof of concept that worked. Future changelist that may be worked on if I want to experiment with something else.
 * Hash password
-* Replace with JPA
+* Replace with JPA and clean up DB related code (try/catch to close sessions, ...)
 * Organize java packages
 * Defer a GET init data load until after the document is fully loaded in the browser
 * Replace code and resources with additional resource Inject
+* Experiment more GET responses that are HTML document responses versus XML partial requests. Specifically, there's an issue where PARTIAL_STATE_SAVING had to be set to false because of JSF790 bug
 
 ## Notes
 
