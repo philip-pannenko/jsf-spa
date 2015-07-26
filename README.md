@@ -69,6 +69,7 @@ Logging
 
 Currently a proof of concept that worked. Future changelist that may be worked on if I want to experiment with something else.
 * Hash password
+* Upload demo project to Heroku / Openshift 
 * Replace with JPA and clean up DB related code (try/catch to close sessions, ...)
 * Organize java packages
 * Defer a GET init data load until after the document is fully loaded in the browser
