@@ -50,4 +50,3 @@ This monitors the Sessions
 connect
 /deployment=jsfspa.war/subsystem=undertow :read-attribute(name=active-sessions)
 ```
-   
