@@ -8,6 +8,7 @@ Focus was to hold onto the benefits and convenience of jsf/bean development with
 * GET Requests along with Ajax to navigate without browser needing to changes pages
 * History.js to manage the browser back/forward functionality without refreshing whole page
 * Pages can be refreshed and bookmarked
+* Application server handles authentication / authorization
 
 ####Libraries
 * Wildfly 8.1
@@ -15,7 +16,6 @@ Focus was to hold onto the benefits and convenience of jsf/bean development with
 * JSF 2.2
 * History.js
 * JQuery 2.1.4
-
 
 ## Notes
 
