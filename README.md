@@ -33,6 +33,38 @@ Implemented a custom AuthenticationMechanism to prevent creation of a session ob
   }
 ```
 
+## Wildfly Modifcations
+
+Data Source
+```
+<datasource jndi-name="java:/jsfspaDS" pool-name="PostgrePool" enabled="true">
+    <connection-url>jdbc:postgresql://localhost/scafold</connection-url>
+    <driver>postgres</driver>
+    <security>
+        <user-name>postgres</user-name>
+        <password>password</password>
+    </security>
+</datasource>
+```
+Security Domain
+```
+<security-domain name="jsfspa-security-domain" cache-type="default">
+    <authentication>
+        <login-module code="Database" flag="required">
+            <module-option name="dsJndiName" value="java:/jsfspaDS"/>
+            <module-option name="principalsQuery" value="SELECT PASSWORD FROM APPUSER WHERE LOGIN  = ?"/>
+            <module-option name="rolesQuery" value="SELECT R.NAME, 'Roles' FROM USER_ROLE UR INNER JOIN APPROLE R ON R.ID = UR.ROLE_ID INNER JOIN APPUSER U ON U.ID = UR.USER_ID WHERE U.LOGIN = ?"/>
+        </login-module>
+    </authentication>
+</security-domain>
+```
+Logging
+```
+<logger category="net.pannenko">
+    <level name="ALL"/>
+</logger>
+```
+
 ## Upcomming changes
 
 Currently a proof of concept that worked. Future changelist that may be worked on if I want to experiment with something else.
