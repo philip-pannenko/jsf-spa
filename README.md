@@ -9,6 +9,7 @@ Focus was to hold onto the benefits and convenience of jsf/bean development with
 * History.js to manage the browser back/forward functionality without refreshing whole page
 * Pages can be refreshed and bookmarked
 * Application server handles authentication / authorization
+* Backwards compatible to work without Javascript working
 
 ####Libraries
 * Wildfly 8.1
